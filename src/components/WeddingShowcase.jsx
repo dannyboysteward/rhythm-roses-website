@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 const weddingGalleries = [
   {
@@ -104,6 +105,25 @@ const categories = [
 export default function WeddingShowcase() {
   const [activeCategory, setActiveCategory] = useState('All Designs');
   const [selectedPhoto, setSelectedPhoto] = useState(null);
+
+  // Lock body scroll and listen for Escape key when modal is open
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setSelectedPhoto(null);
+      }
+    };
+    if (selectedPhoto) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedPhoto]);
 
   const filteredPhotos = activeCategory === 'All Designs'
     ? weddingGalleries
@@ -262,58 +282,73 @@ export default function WeddingShowcase() {
         </div>
       </div>
 
-      {/* Lightbox Modal */}
-      {selectedPhoto && (
+      {/* Lightbox Modal rendered via Portal outside of any parent stacking context */}
+      {selectedPhoto && typeof document !== 'undefined' && createPortal(
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-fade-in"
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-10 bg-black/95 backdrop-blur-2xl animate-fade-in overflow-y-auto"
           onClick={() => setSelectedPhoto(null)}
+          role="dialog"
+          aria-modal="true"
         >
           <div
-            className="relative max-w-4xl w-full bg-slate-950 border border-amber-400/30 rounded-2xl overflow-hidden shadow-2xl"
+            className="relative max-w-4xl w-full my-auto bg-slate-950 border border-amber-400/40 rounded-3xl overflow-hidden shadow-[0_25px_80px_rgba(0,0,0,0.9)] flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
-            <button
-              onClick={() => setSelectedPhoto(null)}
-              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/70 border border-white/20 text-white flex items-center justify-center hover:bg-rose-500 hover:border-rose-400 transition-colors"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
+            {/* Top Bar with Clear High-Contrast Close Button */}
+            <div className="absolute top-4 right-4 z-30 flex items-center gap-2">
+              <button
+                onClick={() => setSelectedPhoto(null)}
+                aria-label="Close modal"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-black/85 hover:bg-rose-600 border border-white/30 text-white font-medium text-xs tracking-wider transition-all shadow-xl hover:scale-105 active:scale-95 cursor-pointer"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <span>Close</span>
+              </button>
+            </div>
 
             {/* Modal Image */}
-            <div className="relative max-h-[65vh] overflow-hidden bg-black flex items-center justify-center">
+            <div className="relative max-h-[60vh] sm:max-h-[65vh] overflow-hidden bg-black flex items-center justify-center pt-8 sm:pt-0">
               <img
                 src={selectedPhoto.image}
                 alt={selectedPhoto.title}
-                className="w-full h-auto max-h-[65vh] object-contain"
+                className="w-full h-auto max-h-[60vh] sm:max-h-[65vh] object-contain"
               />
             </div>
 
-            {/* Modal Info */}
-            <div className="p-6 bg-slate-950/95 border-t border-white/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div>
-                <span className="text-amber-400 text-xs font-semibold uppercase tracking-wider">
+            {/* Modal Info Footer */}
+            <div className="p-6 bg-slate-950 border-t border-white/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div className="space-y-1">
+                <span className="text-amber-400 text-xs font-semibold uppercase tracking-wider font-mono">
                   {selectedPhoto.category}
                 </span>
-                <h3 className="text-xl font-serif font-bold text-white mt-1">
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
                   {selectedPhoto.title}
                 </h3>
-                <p className="text-sm text-slate-300 mt-1 max-w-xl">
+                <p className="text-xs sm:text-sm text-slate-300 max-w-xl leading-relaxed">
                   {selectedPhoto.description}
                 </p>
               </div>
 
-              <a
-                href={`sms:7739804041?body=Hi%20Danny%20Boy,%20I'm%20interested%20in%20the%20${encodeURIComponent(selectedPhoto.title)}%20for%20my%20wedding/event!`}
-                className="shrink-0 px-5 py-2.5 rounded-full bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-colors flex items-center justify-center gap-2"
-              >
-                Inquire on this Design
-              </a>
+              <div className="flex items-center gap-2.5 shrink-0">
+                <button
+                  onClick={() => setSelectedPhoto(null)}
+                  className="px-4 py-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer"
+                >
+                  Close
+                </button>
+                <a
+                  href={`sms:7739804041?body=Hi%20Danny%20Boy,%20I'm%20interested%20in%20the%20${encodeURIComponent(selectedPhoto.title)}%20for%20my%20wedding/event!`}
+                  className="px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-300 text-slate-950 font-bold text-xs uppercase tracking-wider hover:scale-105 transition-all shadow-md flex items-center justify-center gap-1.5"
+                >
+                  Inquire on Design
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );
