@@ -41,12 +41,24 @@ export default function HeroSection() {
           </div>
 
           {/* Main Hero Typography */}
-          <div className="space-y-2">
-            <h2 className="text-sm md:text-base tracking-[0.3em] font-serif uppercase text-amber-200/90 font-medium">
-              Danny Boy’s
-            </h2>
+          <div className="space-y-3">
+            <div className="flex items-center justify-center lg:justify-start gap-4">
+              <img
+                src="/images/rhythm_roses_crest.png"
+                alt="Rhythm & Roses Official Shield"
+                className="w-16 h-16 sm:w-20 sm:h-20 object-contain drop-shadow-[0_0_25px_rgba(244,63,94,0.6)] animate-float"
+              />
+              <div>
+                <h2 className="text-xs md:text-sm tracking-[0.3em] font-serif uppercase text-amber-200/90 font-semibold">
+                  Danny Boy’s
+                </h2>
+                <div className="text-[11px] font-mono tracking-widest text-rose-300/80 uppercase">
+                  Weddings • Funerals • Special Occasions
+                </div>
+              </div>
+            </div>
             <h1 className="text-4xl sm:text-6xl xl:text-7xl font-serif font-black tracking-tight text-white leading-[1.08]">
-              Where <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-pink-300 to-amber-300 drop-shadow-[0_0_35px_rgba(244,63,94,0.4)]">Music</span> Meets <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-rose-400 to-amber-400">Roses</span>.
+              Where <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-pink-300 to-amber-300 drop-shadow-[0_0_35px_rgba(244,63,94,0.4)]">Music</span> Meets <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-rose-400 to-amber-400">Flowers</span>.
             </h1>
           </div>
 

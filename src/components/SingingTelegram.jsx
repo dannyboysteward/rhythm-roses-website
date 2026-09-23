@@ -89,12 +89,12 @@ export default function SingingTelegram() {
                 }}
               >
                 {/* Center Record Label */}
-                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-rose-900 via-black to-amber-900 border-2 border-amber-400/60 flex flex-col items-center justify-center text-center p-2 shadow-inner">
-                  <span className="font-serif font-black text-amber-200 text-sm">RR</span>
-                  <span className="text-[8px] font-mono tracking-widest text-slate-300 uppercase">
-                    DANNY BOY
-                  </span>
-                  <span className="text-[7px] text-rose-300">Rhythm & Roses</span>
+                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-rose-950 via-black to-zinc-950 border-2 border-amber-400/60 flex items-center justify-center p-2 shadow-inner overflow-hidden">
+                  <img
+                    src="/images/rhythm_roses_crest.png"
+                    alt="Rhythm & Roses Record Label"
+                    className="w-full h-full object-contain drop-shadow"
+                  />
                 </div>
               </div>
 

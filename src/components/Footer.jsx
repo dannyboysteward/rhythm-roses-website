@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MapPin, Heart, Sparkles, ArrowUp } from 'lucide-react';
+import { Phone, Mail, MapPin, Heart, Sparkles, ArrowUp } from 'lucide-react';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -20,11 +20,11 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-11 h-11 rounded-full border border-amber-400/50 bg-gradient-to-br from-rose-950 to-black shadow-[0_0_20px_rgba(244,63,94,0.4)]">
-                <span className="font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-400 text-xl">
-                  RR
-                </span>
-              </div>
+              <img
+                src="/images/rhythm_roses_crest.png"
+                alt="Rhythm & Roses Crest"
+                className="w-14 h-14 object-contain drop-shadow-[0_0_20px_rgba(244,63,94,0.5)]"
+              />
               <div>
                 <h3 className="font-serif font-black text-white text-lg tracking-wider uppercase">
                   Rhythm & Roses
@@ -94,6 +94,13 @@ export default function Footer() {
                 <Phone className="w-4 h-4 text-rose-400 shrink-0" />
                 <a href="tel:7739804041" className="hover:text-rose-300 font-semibold font-mono">
                   (773) 980-4041
+                </a>
+              </div>
+
+              <div className="flex items-center gap-2.5">
+                <Mail className="w-4 h-4 text-amber-400 shrink-0" />
+                <a href="mailto:rhythmandrosesdesigns@gmail.com" className="hover:text-amber-300 font-mono text-[11px]">
+                  rhythmandrosesdesigns@gmail.com
                 </a>
               </div>
 

@@ -17,12 +17,11 @@ export default function Navbar({ isAudioActive, toggleAudio }) {
         
         {/* Brand Logo & Monogram */}
         <a href="#" className="flex items-center gap-3 group">
-          <div className="relative flex items-center justify-center w-10 h-10 rounded-full border border-amber-400/50 bg-gradient-to-br from-rose-950/60 to-black shadow-[0_0_15px_rgba(244,63,94,0.4)] group-hover:scale-105 transition-transform">
-            <span className="font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-rose-300 to-amber-400 text-lg">
-              RR
-            </span>
-            <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-rose-500 rounded-full animate-ping opacity-75" />
-          </div>
+          <img
+            src="/images/rhythm_roses_crest.png"
+            alt="Rhythm & Roses Crest"
+            className="w-11 h-11 object-contain drop-shadow-[0_0_15px_rgba(244,63,94,0.5)] group-hover:scale-110 transition-transform"
+          />
           <div>
             <div className="font-serif tracking-[0.18em] text-sm md:text-base font-bold text-white uppercase flex items-center gap-1.5">
               Rhythm & Roses
