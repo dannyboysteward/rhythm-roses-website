@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Sparkles, CheckCircle2, MapPin, Globe, Mic2, Heart, Star, Phone, ArrowRight } from 'lucide-react';
 
-export default function SingingTelegram() {
+export default function SingingTelegram({ onOpenOrderStudio }) {
   const [activeMood, setActiveMood] = useState('romance');
 
   const moods = [
@@ -144,7 +144,7 @@ export default function SingingTelegram() {
                 href="tel:7732456831"
                 className="text-xs font-semibold text-indigo-300 hover:text-white flex items-center gap-1 transition-colors"
               >
-                <span>Call (773) 24-LOVE-1</span>
+                <span>Call (773) 24-LOVE-1 (245-6831)</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </a>
             </div>
@@ -230,19 +230,19 @@ export default function SingingTelegram() {
 
             {/* Direct Booking Action */}
             <div className="pt-2 flex flex-col sm:flex-row gap-3">
-              <a
-                href="#order-studio"
-                className="flex-1 py-3.5 rounded-full bg-gradient-to-r from-indigo-600 via-purple-600 to-rose-600 hover:from-indigo-500 hover:to-rose-500 text-white font-bold text-sm tracking-wider uppercase text-center shadow-[0_0_25px_rgba(99,102,241,0.5)] hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2"
+              <button
+                onClick={onOpenOrderStudio}
+                className="flex-1 py-3.5 rounded-full bg-gradient-to-r from-indigo-600 via-purple-600 to-rose-600 hover:from-indigo-500 hover:to-rose-500 text-white font-bold text-sm tracking-wider uppercase text-center shadow-[0_0_25px_rgba(99,102,241,0.5)] hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Reserve This Singing Telegram</span>
                 <CheckCircle2 className="w-4 h-4" />
-              </a>
+              </button>
 
               <a
                 href="sms:7732456831?body=Hi%20Danny%20Boy,%20I'd%20like%20to%20book%20a%20Singing%20Telegram!"
                 className="py-3.5 px-6 rounded-full glass-panel hover:bg-white/10 text-white font-semibold text-xs tracking-wider uppercase text-center border border-white/20 hover:border-indigo-400 flex items-center justify-center gap-2 transition-all"
               >
-                <span>Text (773) 24-LOVE-1</span>
+                <span>Text (773) 24-LOVE-1 (245-6831)</span>
               </a>
             </div>
 

@@ -11,6 +11,10 @@ import Footer from './components/Footer';
 
 export default function App() {
   const [currentTheme, setCurrentTheme] = useState('rose');
+  const [isOrderStudioOpen, setIsOrderStudioOpen] = useState(false);
+
+  const handleOpenStudio = () => setIsOrderStudioOpen(true);
+  const handleCloseStudio = () => setIsOrderStudioOpen(false);
 
   // Detect scroll position to drive chromatic atmospheric transitions
   useEffect(() => {
@@ -63,7 +67,7 @@ export default function App() {
   };
 
   return (
-    <div className={`relative min-h-screen bg-gradient-to-b ${getThemeBackgroundStyles()} transition-colors duration-1000 ease-out text-slate-100 selection:bg-rose-500 selection:text-white`}>
+    <div className={`relative min-h-screen overflow-x-hidden w-full max-w-full bg-gradient-to-b ${getThemeBackgroundStyles()} transition-colors duration-1000 ease-out text-slate-100 selection:bg-rose-500 selection:text-white`}>
       
       {/* Precision Trailing Magnetic Cursor */}
       <CustomCursor />
@@ -72,19 +76,23 @@ export default function App() {
       <ParticleCanvas currentTheme={currentTheme} />
 
       {/* Navigation Bar */}
-      <Navbar />
+      <Navbar onOpenOrderStudio={handleOpenStudio} />
 
       {/* Main Page Flow */}
       <main className="relative z-10 space-y-4">
-        <HeroSection />
-        <SingingTelegram />
-        <CollectionsGrid />
-        <WeddingShowcase />
-        <OrderStudio />
+        <HeroSection onOpenOrderStudio={handleOpenStudio} />
+        <SingingTelegram onOpenOrderStudio={handleOpenStudio} />
+        <CollectionsGrid onOpenOrderStudio={handleOpenStudio} />
+        <WeddingShowcase onOpenOrderStudio={handleOpenStudio} />
+        <OrderStudio
+          isOpen={isOrderStudioOpen}
+          onClose={handleCloseStudio}
+          onOpen={handleOpenStudio}
+        />
       </main>
 
       {/* Luxury Footer */}
-      <Footer />
+      <Footer onOpenOrderStudio={handleOpenStudio} />
     </div>
   );
 }

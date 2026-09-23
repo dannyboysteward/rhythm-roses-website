@@ -1,7 +1,7 @@
 import React from 'react';
 import { Phone, Mail, MapPin, Heart, Sparkles, ArrowUp } from 'lucide-react';
 
-export default function Footer() {
+export default function Footer({ onOpenOrderStudio }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -76,9 +76,12 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#order-studio" className="hover:text-rose-400 transition-colors">
+                <button
+                  onClick={onOpenOrderStudio}
+                  className="hover:text-rose-400 transition-colors text-left cursor-pointer"
+                >
                   Interactive Bespoke Order Studio
-                </a>
+                </button>
               </li>
             </ul>
           </div>
@@ -93,7 +96,7 @@ export default function Footer() {
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-rose-400 shrink-0" />
                 <a href="tel:7732456831" className="hover:text-rose-300 font-semibold font-mono text-xs">
-                  (773) 24-LOVE-1 &bull; (773) 245-6831
+                  (773) 24-LOVE-1 (245-6831)
                 </a>
               </div>
 

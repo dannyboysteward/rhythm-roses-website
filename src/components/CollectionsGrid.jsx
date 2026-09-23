@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Sparkles, HeartHandshake, Church, Gift, ArrowUpRight, Check, Phone } from 'lucide-react';
 
-export default function CollectionsGrid() {
+export default function CollectionsGrid({ onOpenOrderStudio }) {
   const [filter, setFilter] = useState('all');
 
   const collections = [
@@ -250,14 +250,14 @@ export default function CollectionsGrid() {
               className="px-6 py-3.5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition-all"
             >
               <Phone className="w-4 h-4 fill-black" />
-              <span>Call Direct (773) 24-LOVE-1</span>
+              <span>Call Direct (773) 24-LOVE-1 (245-6831)</span>
             </a>
-            <a
-              href="#order-studio"
-              className="px-6 py-3.5 rounded-full glass-panel hover:bg-white/10 text-white font-semibold text-xs uppercase tracking-wider border border-white/20 hover:border-amber-400 flex items-center justify-center transition-all"
+            <button
+              onClick={onOpenOrderStudio}
+              className="px-6 py-3.5 rounded-full glass-panel hover:bg-white/10 text-white font-semibold text-xs uppercase tracking-wider border border-white/20 hover:border-amber-400 flex items-center justify-center transition-all cursor-pointer"
             >
               <span>Submit Church Inquiry</span>
-            </a>
+            </button>
           </div>
         </div>
 

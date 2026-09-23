@@ -130,7 +130,7 @@ export default function WeddingShowcase() {
     : weddingGalleries.filter(item => item.category === activeCategory);
 
   return (
-    <section id="weddings-galas" className="relative py-28 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto z-10 scroll-mt-24">
+    <section id="weddings-galas" className="relative py-28 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto z-10 scroll-mt-24 overflow-hidden">
       {/* Decorative ambient glowing backdrops */}
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-amber-500/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-rose-500/10 rounded-full blur-[140px] pointer-events-none" />
@@ -264,10 +264,10 @@ export default function WeddingShowcase() {
               href="sms:7732456831?body=Hi%20Danny%20Boy,%20I'd%20like%20to%20consult%20about%20wedding/gala%20florals%20for%20my%20event!"
               className="px-6 py-3.5 rounded-full bg-gradient-to-r from-amber-400 via-amber-300 to-rose-400 text-slate-950 font-bold text-sm hover:scale-105 transition-all duration-300 shadow-lg shadow-amber-500/25 flex items-center gap-2"
             >
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
               </svg>
-              Text Consultation (773) 24-LOVE-1
+              Text Consultation (773) 24-LOVE-1 (245-6831)
             </a>
             <a
               href="tel:7732456831"
@@ -276,7 +276,7 @@ export default function WeddingShowcase() {
               <svg className="w-4 h-4 text-amber-300" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 4V3z" />
               </svg>
-              Call (773) 245-6831
+              Call (773) 24-LOVE-1 (245-6831)
             </a>
           </div>
         </div>

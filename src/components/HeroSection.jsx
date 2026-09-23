@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Music, Sparkles, ArrowRight, HeartHandshake, Phone, Star } from 'lucide-react';
 
-export default function HeroSection() {
+export default function HeroSection({ onOpenOrderStudio }) {
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
 
   const handleMouseMove = (e) => {
@@ -65,7 +65,7 @@ export default function HeroSection() {
           {/* Subtitle / Value Prop */}
           <p className="text-slate-300 text-base md:text-lg max-w-2xl font-light leading-relaxed">
             We deliver moments, not just flowers. Experience Chicago’s premier luxury floral atelier—fusing 
-            <span className="text-rose-300 font-normal"> live R&B singing telegrams</span> serenaded by Death Row legend 
+            <span className="text-rose-300 font-normal"> live R&B singing telegrams</span> serenaded by R&B legend 
             <strong className="text-white font-semibold"> Danny Boy</strong>, with breathtaking ceremonial altar arrangements, luxury sympathy tributes, and bespoke designer bouquets.
           </p>
 
