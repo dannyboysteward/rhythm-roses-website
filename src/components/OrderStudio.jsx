@@ -21,10 +21,11 @@ export default function OrderStudio() {
 
   const flowerOptions = [
     { name: 'Quilted Handbag Designer Rose Box', note: 'Signature luxury novelty' },
+    { name: 'The Royal Sweetheart Table Garland', note: 'Weddings & gala banquets' },
+    { name: 'Imperial Crystal Grand Centerpiece', note: 'Elevated ballroom reception' },
     { name: 'Sacred Altar Arrangement ($350+)', note: 'Church / sanctuary statement' },
     { name: 'The Luxury 3-Piece Memorial Suite', note: 'Casket, standing spray & wreath' },
     { name: 'Sealed With Love Envelope Roses', note: 'Fiery red & sunset orange' },
-    { name: 'Classic Luxury Rose Bouquet (1-2 Dozen)', note: 'Ecuadorian long-stem cuts' },
     { name: 'Custom Bespoke Floral Design', note: 'Consultation with Danny Boy' },
   ];
 

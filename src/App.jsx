@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import SingingTelegram from './components/SingingTelegram';
 import CollectionsGrid from './components/CollectionsGrid';
-import ChicagoLegacy from './components/ChicagoLegacy';
+import WeddingShowcase from './components/WeddingShowcase';
 import OrderStudio from './components/OrderStudio';
 import Footer from './components/Footer';
 
@@ -24,17 +24,17 @@ export default function App() {
       const heroEl = document.getElementById('root');
       const musicEl = document.getElementById('singing-telegrams');
       const collectionsEl = document.getElementById('collections');
-      const rootsEl = document.getElementById('chicago-roots');
+      const weddingsEl = document.getElementById('weddings-galas');
       const studioEl = document.getElementById('order-studio');
 
       const studioTop = studioEl ? studioEl.offsetTop : Infinity;
-      const rootsTop = rootsEl ? rootsEl.offsetTop : Infinity;
+      const weddingsTop = weddingsEl ? weddingsEl.offsetTop : Infinity;
       const collectionsTop = collectionsEl ? collectionsEl.offsetTop : Infinity;
       const musicTop = musicEl ? musicEl.offsetTop : Infinity;
 
       if (scrollPos >= studioTop) {
         setCurrentTheme('coral');
-      } else if (scrollPos >= rootsTop) {
+      } else if (scrollPos >= weddingsTop) {
         setCurrentTheme('gold');
       } else if (scrollPos >= collectionsTop) {
         setCurrentTheme('emerald');
@@ -148,7 +148,7 @@ export default function App() {
         <HeroSection />
         <SingingTelegram />
         <CollectionsGrid />
-        <ChicagoLegacy />
+        <WeddingShowcase />
         <OrderStudio />
       </main>
 

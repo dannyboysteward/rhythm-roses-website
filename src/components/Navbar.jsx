@@ -6,9 +6,9 @@ export default function Navbar({ isAudioActive, toggleAudio }) {
 
   const navLinks = [
     { label: 'Singing Telegrams', href: '#singing-telegrams' },
-    { label: 'Altar & Memorials', href: '#altar-memorials' },
-    { label: 'Collections', href: '#collections' },
-    { label: 'Chicago Roots', href: '#chicago-roots' },
+    { label: 'Floral Collections', href: '#collections' },
+    { label: 'Weddings & Galas', href: '#weddings-galas' },
+    { label: 'Order Studio', href: '#order-studio' },
   ];
 
   return (

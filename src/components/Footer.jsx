@@ -71,8 +71,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#chicago-roots" className="hover:text-amber-400 transition-colors">
-                  Chicago Roots & Elsie Stamps Way
+                <a href="#weddings-galas" className="hover:text-amber-400 transition-colors">
+                  Luxury Weddings & Gala Florals
                 </a>
               </li>
               <li>
