@@ -50,11 +50,12 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           {/* Direct Call Button */}
           <a
-            href="tel:7739804041"
+            href="tel:7732456831"
+            title="Call (773) 24-LOVE-1 / (773) 245-6831"
             className="flex items-center gap-2 bg-gradient-to-r from-rose-600 via-rose-500 to-amber-600 hover:from-rose-500 hover:to-amber-500 text-white font-semibold text-xs tracking-wider uppercase px-4 py-2 rounded-full shadow-[0_4px_16px_rgba(225,29,72,0.4)] hover:shadow-[0_4px_24px_rgba(225,29,72,0.6)] hover:scale-105 active:scale-95 transition-all"
           >
             <Phone className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">773.980.4041</span>
+            <span className="hidden sm:inline">(773) 24-LOVE-1</span>
             <span className="sm:hidden">Call</span>
           </a>
 
@@ -84,11 +85,11 @@ export default function Navbar() {
           ))}
           <div className="pt-2 flex items-center justify-between">
             <a
-              href="tel:7739804041"
+              href="tel:7732456831"
               className="flex items-center gap-1.5 text-xs text-rose-300 font-semibold"
             >
               <Phone className="w-3.5 h-3.5" />
-              <span>(773) 980-4041</span>
+              <span>(773) 24-LOVE-1</span>
             </a>
             <a
               href="#order-studio"

@@ -295,7 +295,7 @@ export default function OrderStudio() {
                 
                 {/* 1-Tap Text Message Transmission */}
                 <a
-                  href={`sms:7739804041?&body=${smsBody}`}
+                  href={`sms:7732456831?&body=${smsBody}`}
                   className="w-full py-4 rounded-2xl bg-gradient-to-r from-rose-600 via-rose-500 to-amber-600 hover:from-rose-500 hover:to-amber-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(225,29,72,0.4)] hover:scale-[1.02] active:scale-98 transition-all"
                 >
                   <MessageSquare className="w-4 h-4 fill-white" />
@@ -304,11 +304,11 @@ export default function OrderStudio() {
 
                 {/* Direct Phone Call Button */}
                 <a
-                  href="tel:7739804041"
+                  href="tel:7732456831"
                   className="w-full py-3.5 rounded-2xl glass-panel hover:bg-white/10 text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 border border-white/20 hover:border-amber-400 transition-all"
                 >
                   <Phone className="w-4 h-4" />
-                  <span>Call to Finalize: (773) 980-4041</span>
+                  <span>Call to Finalize: (773) 24-LOVE-1</span>
                 </a>
 
               </div>

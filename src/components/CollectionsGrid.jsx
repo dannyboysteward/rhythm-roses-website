@@ -246,11 +246,11 @@ export default function CollectionsGrid() {
 
           <div className="flex flex-col sm:flex-row gap-3 shrink-0 w-full sm:w-auto">
             <a
-              href="tel:7739804041"
+              href="tel:7732456831"
               className="px-6 py-3.5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition-all"
             >
               <Phone className="w-4 h-4 fill-black" />
-              <span>Call Direct 773.980.4041</span>
+              <span>Call Direct (773) 24-LOVE-1</span>
             </a>
             <a
               href="#order-studio"

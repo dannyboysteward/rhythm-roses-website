@@ -261,22 +261,22 @@ export default function WeddingShowcase() {
 
           <div className="pt-3 flex flex-wrap items-center justify-center gap-4">
             <a
-              href="sms:7739804041?body=Hi%20Danny%20Boy,%20I'd%20like%20to%20consult%20about%20wedding/gala%20florals%20for%20my%20event!"
+              href="sms:7732456831?body=Hi%20Danny%20Boy,%20I'd%20like%20to%20consult%20about%20wedding/gala%20florals%20for%20my%20event!"
               className="px-6 py-3.5 rounded-full bg-gradient-to-r from-amber-400 via-amber-300 to-rose-400 text-slate-950 font-bold text-sm hover:scale-105 transition-all duration-300 shadow-lg shadow-amber-500/25 flex items-center gap-2"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
               </svg>
-              Text Consultation Inquiry (773) 980-4041
+              Text Consultation (773) 24-LOVE-1
             </a>
             <a
-              href="tel:7739804041"
+              href="tel:7732456831"
               className="px-6 py-3.5 rounded-full bg-black/40 hover:bg-black/60 border border-white/20 hover:border-amber-400 text-white font-medium text-sm transition-all duration-300 flex items-center gap-2"
             >
               <svg className="w-4 h-4 text-amber-300" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 4V3z" />
               </svg>
-              Direct Studio Call
+              Call (773) 245-6831
             </a>
           </div>
         </div>
@@ -339,7 +339,7 @@ export default function WeddingShowcase() {
                   Close
                 </button>
                 <a
-                  href={`sms:7739804041?body=Hi%20Danny%20Boy,%20I'm%20interested%20in%20the%20${encodeURIComponent(selectedPhoto.title)}%20for%20my%20wedding/event!`}
+                  href={`sms:7732456831?body=Hi%20Danny%20Boy,%20I'm%20interested%20in%20the%20${encodeURIComponent(selectedPhoto.title)}%20for%20my%20wedding/event!`}
                   className="px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-300 text-slate-950 font-bold text-xs uppercase tracking-wider hover:scale-105 transition-all shadow-md flex items-center justify-center gap-1.5"
                 >
                   Inquire on Design

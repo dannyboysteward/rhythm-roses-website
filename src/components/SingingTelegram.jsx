@@ -141,10 +141,10 @@ export default function SingingTelegram() {
             <div className="pt-6 mt-6 border-t border-white/10 relative z-10 flex items-center justify-between">
               <span className="text-xs text-slate-400">Questions or custom requests?</span>
               <a
-                href="tel:7739804041"
+                href="tel:7732456831"
                 className="text-xs font-semibold text-indigo-300 hover:text-white flex items-center gap-1 transition-colors"
               >
-                <span>Call (773) 980-4041</span>
+                <span>Call (773) 24-LOVE-1</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </a>
             </div>
@@ -239,10 +239,10 @@ export default function SingingTelegram() {
               </a>
 
               <a
-                href="sms:7739804041?body=Hi%20Danny%20Boy,%20I'd%20like%20to%20book%20a%20Singing%20Telegram!"
+                href="sms:7732456831?body=Hi%20Danny%20Boy,%20I'd%20like%20to%20book%20a%20Singing%20Telegram!"
                 className="py-3.5 px-6 rounded-full glass-panel hover:bg-white/10 text-white font-semibold text-xs tracking-wider uppercase text-center border border-white/20 hover:border-indigo-400 flex items-center justify-center gap-2 transition-all"
               >
-                <span>Text Inquiry (773) 980-4041</span>
+                <span>Text (773) 24-LOVE-1</span>
               </a>
             </div>
 
