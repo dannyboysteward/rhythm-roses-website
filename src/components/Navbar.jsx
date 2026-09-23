@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Phone, Volume2, VolumeX, Menu, X, Music, Sparkles } from 'lucide-react';
+import { Phone, Menu, X, Sparkles } from 'lucide-react';
 
-export default function Navbar({ isAudioActive, toggleAudio }) {
+export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
@@ -46,37 +46,8 @@ export default function Navbar({ isAudioActive, toggleAudio }) {
           ))}
         </div>
 
-        {/* Actions (Sound Vibe + Call + Customizer) */}
+        {/* Actions (Call + Mobile Toggle) */}
         <div className="flex items-center gap-3">
-          
-          {/* Soul Atmosphere Audio Switch */}
-          <button
-            onClick={toggleAudio}
-            title={isAudioActive ? "Mute Soul Atmosphere" : "Listen to Soul Atmosphere"}
-            className={`hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium border transition-all duration-300 ${
-              isAudioActive
-                ? 'bg-rose-950/60 border-rose-500/70 text-rose-200 shadow-[0_0_15px_rgba(244,63,94,0.3)]'
-                : 'bg-white/5 border-white/10 text-slate-400 hover:text-white'
-            }`}
-          >
-            {isAudioActive ? (
-              <>
-                <Volume2 className="w-3.5 h-3.5 text-rose-400 animate-pulse" />
-                <span className="flex items-center gap-0.5 h-3">
-                  <span className="w-0.5 bg-rose-400 rounded-full animate-[bounce_0.6s_ease-in-out_infinite] h-full" />
-                  <span className="w-0.5 bg-amber-400 rounded-full animate-[bounce_0.8s_ease-in-out_infinite_0.15s] h-2/3" />
-                  <span className="w-0.5 bg-rose-400 rounded-full animate-[bounce_0.7s_ease-in-out_infinite_0.3s] h-4/5" />
-                </span>
-                <span className="text-[11px] tracking-wide">Rhythm ON</span>
-              </>
-            ) : (
-              <>
-                <VolumeX className="w-3.5 h-3.5 text-slate-500" />
-                <span className="text-[11px] tracking-wide">Rhythm OFF</span>
-              </>
-            )}
-          </button>
-
           {/* Direct Call Button */}
           <a
             href="tel:7739804041"
@@ -112,17 +83,17 @@ export default function Navbar({ isAudioActive, toggleAudio }) {
             </a>
           ))}
           <div className="pt-2 flex items-center justify-between">
-            <button
-              onClick={toggleAudio}
-              className="flex items-center gap-2 text-xs text-rose-300"
+            <a
+              href="tel:7739804041"
+              className="flex items-center gap-1.5 text-xs text-rose-300 font-semibold"
             >
-              {isAudioActive ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
-              <span>{isAudioActive ? "Atmosphere Playing" : "Enable Sound Atmosphere"}</span>
-            </button>
+              <Phone className="w-3.5 h-3.5" />
+              <span>(773) 980-4041</span>
+            </a>
             <a
               href="#order-studio"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-xs bg-rose-600/80 text-white px-3 py-1.5 rounded-full"
+              className="text-xs bg-rose-600/80 text-white px-4 py-2 rounded-full font-medium"
             >
               Custom Order
             </a>

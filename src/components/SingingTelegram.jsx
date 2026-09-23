@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Music, Play, Pause, Disc, Sparkles, CheckCircle2, MapPin, Globe, Mic2, Heart } from 'lucide-react';
+import { Sparkles, CheckCircle2, MapPin, Globe, Mic2, Heart, Star, Phone, ArrowRight } from 'lucide-react';
 
 export default function SingingTelegram() {
   const [activeMood, setActiveMood] = useState('romance');
-  const [isPlayingPreview, setIsPlayingPreview] = useState(false);
 
   const moods = [
     {
@@ -12,7 +11,7 @@ export default function SingingTelegram() {
       badge: 'Most Popular',
       vibe: 'Classic 90s R&B & Smooth Soul',
       tagline: '“Where’s the romance? Let Danny Boy create it for you.”',
-      description: 'Velvety soul vocals accompanied by a luxury rose bouquet to sweep them completely off their feet.',
+      description: 'Velvety soul vocals accompanied by a luxury rose bouquet to sweep your special someone completely off their feet.',
       occasions: 'Anniversaries • Proposals • Date Nights • Apologies & Reconnection',
     },
     {
@@ -21,7 +20,7 @@ export default function SingingTelegram() {
       badge: 'Unforgettable Joy',
       vibe: 'Joyful, Uplifting Soul Groove',
       tagline: '“Shower them with love, rhythm, and vibrant flowers.”',
-      description: 'An electrifying live serenade that turns any home, office, or venue into a private concert celebration.',
+      description: 'An electrifying live serenade that turns any home, office, or dining venue into a private concert celebration.',
       occasions: 'Milestone Birthdays • Office Surprises • Mother’s Day • Graduation',
     },
     {
@@ -30,8 +29,8 @@ export default function SingingTelegram() {
       badge: 'Faithful Comfort',
       vibe: 'Soulful Spirituals & Gospel Hymns',
       tagline: '“Flowers that speak from the heart when words fail.”',
-      description: 'Reverent acoustic gospel and soul ballads honoring a loved one alongside sacred floral wreaths and sprays.',
-      occasions: 'Church Memorials • Repass Services • Funeral Gatherings • Tributes',
+      description: 'Reverent acoustic gospel and soul ballads honoring a loved one alongside sacred floral wreaths, urns, and sprays.',
+      occasions: 'Church Memorials • Repass Services • Funeral Gatherings • Family Tributes',
     },
     {
       id: 'custom',
@@ -39,15 +38,15 @@ export default function SingingTelegram() {
       badge: 'Bespoke Experience',
       vibe: 'Your Choice of Classic R&B or Original',
       tagline: '“A custom musical moment crafted just for them.”',
-      description: 'Have Danny Boy personally learn or perform a specific favorite song with custom spoken words of dedication.',
-      occasions: 'Weddings • VIP Gala Events • Executive Gifts • Lifetime Celebrations',
+      description: 'Have Danny Boy personally perform a specific favorite song accompanied by custom spoken words of dedication.',
+      occasions: 'Weddings • VIP Gala Events • Executive Celebrations • Lifetime Honors',
     },
   ];
 
-  const currentMoodData = moods.find((m) => m.id === activeMood);
+  const currentMoodData = moods.find((m) => m.id === activeMood) || moods[0];
 
   return (
-    <section id="singing-telegrams" className="relative py-28 px-4 md:px-8 overflow-hidden">
+    <section id="singing-telegrams" className="relative py-28 px-4 md:px-8 overflow-hidden scroll-mt-20">
       
       {/* Dynamic Background Glow for Music Vibe */}
       <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-br from-indigo-900/20 via-purple-900/15 to-rose-900/20 rounded-full blur-[160px] pointer-events-none" />
@@ -56,7 +55,7 @@ export default function SingingTelegram() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border border-indigo-400/30 text-xs font-semibold uppercase tracking-widest text-indigo-300 shadow-[0_0_20px_rgba(99,102,241,0.25)]">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-indigo-500/15 via-purple-500/15 to-rose-500/15 border border-indigo-400/30 text-xs font-semibold uppercase tracking-widest text-indigo-300 shadow-[0_0_20px_rgba(99,102,241,0.25)]">
             <Mic2 className="w-3.5 h-3.5 text-indigo-400" />
             <span>The Crown Jewel Experience</span>
           </div>
@@ -70,94 +69,104 @@ export default function SingingTelegram() {
           </p>
         </div>
 
-        {/* The Interactive Soundstage Deck */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center glass-panel-glow rounded-3xl p-6 sm:p-10 border border-indigo-500/20 shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
+        {/* The Soundstage Deck */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch bg-black/40 backdrop-blur-2xl rounded-3xl p-6 sm:p-10 border border-indigo-500/20 shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
           
-          {/* Left: The Spinning Vinyl Player / Audio Deck Visualizer */}
-          <div className="lg:col-span-5 flex flex-col items-center justify-center p-6 rounded-2xl bg-black/50 border border-white/10 relative overflow-hidden">
+          {/* Left: VIP Experience Overview Card */}
+          <div className="lg:col-span-5 flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-indigo-950/50 via-black/60 to-purple-950/40 border border-white/10 relative overflow-hidden">
             
-            {/* Spinning Vinyl Record */}
-            <div className="relative w-56 h-56 sm:w-64 sm:h-64 flex items-center justify-center">
-              
-              {/* Outer Grooves */}
-              <div
-                className={`w-full h-full rounded-full bg-[#0d0d11] border-4 border-[#1e1e28] shadow-[0_0_40px_rgba(168,85,247,0.3)] flex items-center justify-center ${
-                  isPlayingPreview ? 'animate-[spin_4s_linear_infinite]' : ''
-                }`}
-                style={{
-                  backgroundImage: `radial-gradient(circle, transparent 20%, rgba(255,255,255,0.03) 21%, transparent 22%, rgba(255,255,255,0.03) 30%, transparent 31%, rgba(255,255,255,0.03) 45%, transparent 46%, rgba(255,255,255,0.03) 60%, transparent 61%, rgba(255,255,255,0.03) 75%, transparent 76%)`,
-                }}
-              >
-                {/* Center Record Label */}
-                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-rose-950 via-black to-zinc-950 border-2 border-amber-400/60 flex items-center justify-center p-2 shadow-inner overflow-hidden">
+            {/* Subtle Crest Background Watermark */}
+            <div className="absolute -right-10 -bottom-10 w-52 h-52 opacity-10 pointer-events-none">
+              <img
+                src="/images/rhythm_roses_crest.png"
+                alt=""
+                className="w-full h-full object-contain"
+              />
+            </div>
+
+            <div className="space-y-6 relative z-10">
+              {/* Crest & Badge */}
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 rounded-2xl bg-black/60 border border-amber-400/40 p-2 flex items-center justify-center shadow-lg shadow-amber-950/40">
                   <img
                     src="/images/rhythm_roses_crest.png"
-                    alt="Rhythm & Roses Record Label"
-                    className="w-full h-full object-contain drop-shadow"
+                    alt="Rhythm & Roses Crest"
+                    className="w-full h-full object-contain"
                   />
+                </div>
+                <div>
+                  <span className="inline-flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-widest text-amber-300 font-semibold">
+                    <Star className="w-3 h-3 fill-amber-300" />
+                    Signature Experience
+                  </span>
+                  <h3 className="font-serif font-bold text-xl text-white">
+                    Where Music Meets Flowers
+                  </h3>
                 </div>
               </div>
 
-              {/* Tonearm Visual Accent */}
-              <div className="absolute top-2 right-2 w-16 h-28 border-r-2 border-t-2 border-amber-300/40 rounded-tr-2xl transform rotate-12 pointer-events-none" />
+              {/* Artist Quote */}
+              <blockquote className="p-4 rounded-xl bg-white/5 border-l-2 border-indigo-400 text-slate-300 text-xs sm:text-sm italic leading-relaxed">
+                “Flowers speak directly to the eyes, but song and melody speak straight to the soul. When they arrive together, it becomes a memory that lasts forever.”
+                <span className="block mt-2 text-right not-italic font-semibold text-indigo-300 text-xs">— Danny Boy Steward</span>
+              </blockquote>
+
+              {/* Inclusions Checklist */}
+              <div className="space-y-3 pt-2">
+                <h4 className="text-xs uppercase tracking-wider text-slate-300 font-semibold font-mono">
+                  Every Singing Telegram Includes:
+                </h4>
+                <ul className="space-y-2.5 text-xs sm:text-sm text-slate-300">
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span><strong>Live Vocal Performance</strong> by Danny Boy Steward</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span><strong>Hand-Arranged Luxury Floral Design</strong> of your choice</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span><strong>Personal Calligraphed Card</strong> with your custom message</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span><strong>Unforgettable Photo Moment</strong> with recipient & artist</span>
+                  </li>
+                </ul>
+              </div>
             </div>
 
-            {/* Audio Waveform Equalizer */}
-            <div className="w-full mt-6 space-y-2">
-              <div className="flex items-center justify-between text-xs text-slate-400 px-2 font-mono">
-                <span className="flex items-center gap-1.5 text-indigo-300">
-                  <Music className="w-3.5 h-3.5" />
-                  {currentMoodData.vibe}
-                </span>
-                <span>{isPlayingPreview ? '0:45 / 2:30' : 'SAMPLE VOCAL'}</span>
-              </div>
-
-              {/* Waveform Bars */}
-              <div className="h-10 flex items-end justify-center gap-1 px-4 py-1 bg-white/5 rounded-xl border border-white/5">
-                {[12, 28, 45, 78, 60, 90, 40, 85, 95, 70, 50, 85, 65, 45, 80, 100, 75, 55, 90, 60, 40, 75, 95, 60, 30, 20].map(
-                  (val, idx) => (
-                    <div
-                      key={idx}
-                      className={`w-1 rounded-full transition-all duration-300 ${
-                        isPlayingPreview
-                          ? 'bg-gradient-to-t from-indigo-500 via-purple-400 to-rose-400 animate-pulse'
-                          : 'bg-white/20'
-                      }`}
-                      style={{
-                        height: isPlayingPreview ? `${Math.max(15, (val * (idx % 2 === 0 ? 0.9 : 1.1)) % 100)}%` : '20%',
-                      }}
-                    />
-                  )
-                )}
-              </div>
-
-              {/* Play / Sample Button */}
-              <button
-                onClick={() => setIsPlayingPreview(!isPlayingPreview)}
-                className="w-full mt-3 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-rose-600 hover:from-indigo-500 hover:to-rose-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(99,102,241,0.4)] transition-all"
+            {/* Quick Consultation Call Link */}
+            <div className="pt-6 mt-6 border-t border-white/10 relative z-10 flex items-center justify-between">
+              <span className="text-xs text-slate-400">Questions or custom requests?</span>
+              <a
+                href="tel:7739804041"
+                className="text-xs font-semibold text-indigo-300 hover:text-white flex items-center gap-1 transition-colors"
               >
-                {isPlayingPreview ? <Pause className="w-4 h-4 fill-white" /> : <Play className="w-4 h-4 fill-white" />}
-                <span>{isPlayingPreview ? 'Pause Serenade Sample' : 'Sample Danny Boy Soul Vibe'}</span>
-              </button>
+                <span>Call (773) 980-4041</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
             </div>
+
           </div>
 
           {/* Right: Mood Selector & Delivery Tiers */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
             
             {/* Mood Category Pills */}
             <div className="space-y-2">
-              <span className="text-xs font-semibold text-slate-400 uppercase tracking-widest block">
+              <span className="text-xs font-semibold text-slate-400 uppercase tracking-widest block font-mono">
                 1. Select Serenade Occasion:
               </span>
-              <div className="grid grid-cols-2 gap-2.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {moods.map((m) => (
                   <button
                     key={m.id}
                     onClick={() => setActiveMood(m.id)}
-                    className={`p-3 rounded-2xl text-left border transition-all ${
+                    className={`p-3.5 rounded-2xl text-left border transition-all ${
                       activeMood === m.id
-                        ? 'bg-indigo-950/60 border-indigo-400 text-white shadow-[0_0_20px_rgba(99,102,241,0.3)] scale-[1.02]'
+                        ? 'bg-indigo-950/60 border-indigo-400 text-white shadow-[0_0_20px_rgba(99,102,241,0.3)] scale-[1.01]'
                         : 'bg-white/5 border-white/10 text-slate-300 hover:bg-white/10 hover:border-white/20'
                     }`}
                   >
@@ -165,8 +174,8 @@ export default function SingingTelegram() {
                       <span className="font-serif font-bold text-sm">{m.title}</span>
                       {activeMood === m.id && <Sparkles className="w-3.5 h-3.5 text-indigo-400" />}
                     </div>
-                    <span className="text-[10px] text-slate-400 block line-clamp-1">
-                      {m.badge}
+                    <span className="text-[11px] text-slate-400 block line-clamp-1">
+                      {m.badge} • {m.vibe}
                     </span>
                   </button>
                 ))}
@@ -175,9 +184,9 @@ export default function SingingTelegram() {
 
             {/* Active Mood Details Card */}
             <div className="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs uppercase tracking-widest text-amber-300 font-semibold">
-                  Selected Vibe: {currentMoodData.title}
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                <span className="text-xs uppercase tracking-widest text-amber-300 font-semibold font-mono">
+                  {currentMoodData.title}
                 </span>
                 <span className="text-xs text-rose-300 italic">{currentMoodData.tagline}</span>
               </div>
@@ -186,21 +195,21 @@ export default function SingingTelegram() {
               </p>
               <div className="pt-2 border-t border-white/10 flex items-center gap-2 text-xs text-slate-400">
                 <Heart className="w-3.5 h-3.5 text-rose-400 shrink-0" />
-                <span>Ideal for: {currentMoodData.occasions}</span>
+                <span>Perfect For: <strong className="text-slate-300">{currentMoodData.occasions}</strong></span>
               </div>
             </div>
 
             {/* Delivery Formats (In-Person Chicago vs Video) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="p-4 rounded-2xl bg-indigo-950/40 border border-indigo-500/30 space-y-2">
                 <div className="flex items-center gap-2 text-indigo-300">
                   <MapPin className="w-4 h-4" />
-                  <span className="font-bold text-xs uppercase tracking-wider">In-Person Chicago</span>
+                  <span className="font-bold text-xs uppercase tracking-wider">In-Person Chicagoland</span>
                 </div>
-                <p className="text-xs text-slate-300">
+                <p className="text-xs text-slate-300 leading-relaxed">
                   Danny Boy arrives live with the floral arrangement across Chicago & surrounding suburbs.
                 </p>
-                <div className="text-[11px] text-indigo-200/90 font-mono font-semibold">
+                <div className="text-[11px] text-indigo-200/90 font-mono font-semibold pt-1 border-t border-indigo-500/20">
                   Doorstep • Dinner • Church • Event
                 </div>
               </div>
@@ -208,12 +217,12 @@ export default function SingingTelegram() {
               <div className="p-4 rounded-2xl bg-purple-950/40 border border-purple-500/30 space-y-2">
                 <div className="flex items-center gap-2 text-purple-300">
                   <Globe className="w-4 h-4" />
-                  <span className="font-bold text-xs uppercase tracking-wider">HD Video Telegram</span>
+                  <span className="font-bold text-xs uppercase tracking-wider">Worldwide 4K Video Telegram</span>
                 </div>
-                <p className="text-xs text-slate-300">
+                <p className="text-xs text-slate-300 leading-relaxed">
                   Personalized 4K video serenade delivered digitally anywhere in the world + flowers.
                 </p>
-                <div className="text-[11px] text-purple-200/90 font-mono font-semibold">
+                <div className="text-[11px] text-purple-200/90 font-mono font-semibold pt-1 border-t border-purple-500/20">
                   Worldwide Access • Keepsake Video
                 </div>
               </div>
@@ -230,10 +239,10 @@ export default function SingingTelegram() {
               </a>
 
               <a
-                href="tel:7739804041"
+                href="sms:7739804041?body=Hi%20Danny%20Boy,%20I'd%20like%20to%20book%20a%20Singing%20Telegram!"
                 className="py-3.5 px-6 rounded-full glass-panel hover:bg-white/10 text-white font-semibold text-xs tracking-wider uppercase text-center border border-white/20 hover:border-indigo-400 flex items-center justify-center gap-2 transition-all"
               >
-                <span>Call to Inquire (773) 980-4041</span>
+                <span>Text Inquiry (773) 980-4041</span>
               </a>
             </div>
 

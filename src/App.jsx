@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import CustomCursor from './components/CustomCursor';
 import ParticleCanvas from './components/ParticleCanvas';
 import Navbar from './components/Navbar';
@@ -11,10 +11,6 @@ import Footer from './components/Footer';
 
 export default function App() {
   const [currentTheme, setCurrentTheme] = useState('rose');
-  const [isAudioActive, setIsAudioActive] = useState(false);
-  const audioCtxRef = useRef(null);
-  const gainNodeRef = useRef(null);
-  const oscNodesRef = useRef([]);
 
   // Detect scroll position to drive chromatic atmospheric transitions
   useEffect(() => {
@@ -49,71 +45,6 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Web Audio API: Warm Silky Soul Pad Chords (Self-contained ambient atmosphere)
-  const toggleAudio = () => {
-    if (isAudioActive) {
-      // Fade out
-      if (gainNodeRef.current && audioCtxRef.current) {
-        gainNodeRef.current.gain.setTargetAtTime(0, audioCtxRef.current.currentTime, 0.5);
-      }
-      setIsAudioActive(false);
-    } else {
-      try {
-        if (!audioCtxRef.current) {
-          const AudioContext = window.AudioContext || window.webkitAudioContext;
-          audioCtxRef.current = new AudioContext();
-        }
-        const ctx = audioCtxRef.current;
-        if (ctx.state === 'suspended') {
-          ctx.resume();
-        }
-
-        // Clean previous oscillators
-        oscNodesRef.current.forEach((osc) => {
-          try { osc.stop(); } catch (e) {}
-        });
-        oscNodesRef.current = [];
-
-        // Master Gain
-        const masterGain = ctx.createGain();
-        masterGain.gain.setValueAtTime(0.001, ctx.currentTime);
-        masterGain.gain.exponentialRampToValueAtTime(0.12, ctx.currentTime + 1.5);
-        masterGain.connect(ctx.destination);
-        gainNodeRef.current = masterGain;
-
-        // Warm Lowpass Filter for that cozy velvet vinyl R&B texture
-        const filter = ctx.createBiquadFilter();
-        filter.type = 'lowpass';
-        filter.frequency.setValueAtTime(450, ctx.currentTime);
-        filter.connect(masterGain);
-
-        // Lush Soul Chord Frequencies (F#min9 / A maj7 chord harmonic root: F#2, C#3, A3, E4, G#4)
-        const chordFreqs = [92.50, 138.59, 220.00, 329.63, 415.30];
-
-        chordFreqs.forEach((freq, idx) => {
-          const osc = ctx.createOscillator();
-          osc.type = idx % 2 === 0 ? 'sine' : 'triangle';
-          osc.frequency.setValueAtTime(freq, ctx.currentTime);
-
-          // Subtle harmonic detuning for analog soul warmth
-          osc.detune.setValueAtTime((Math.random() - 0.5) * 8, ctx.currentTime);
-
-          const noteGain = ctx.createGain();
-          noteGain.gain.setValueAtTime(0.2, ctx.currentTime);
-
-          osc.connect(noteGain);
-          noteGain.connect(filter);
-          osc.start();
-          oscNodesRef.current.push(osc);
-        });
-
-        setIsAudioActive(true);
-      } catch (err) {
-        console.error('Audio initialization error:', err);
-      }
-    }
-  };
-
   // Dynamic Theme Atmospheric Background Colors
   const getThemeBackgroundStyles = () => {
     switch (currentTheme) {
@@ -141,7 +72,7 @@ export default function App() {
       <ParticleCanvas currentTheme={currentTheme} />
 
       {/* Navigation Bar */}
-      <Navbar isAudioActive={isAudioActive} toggleAudio={toggleAudio} />
+      <Navbar />
 
       {/* Main Page Flow */}
       <main className="relative z-10 space-y-4">
